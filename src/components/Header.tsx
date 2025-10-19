@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { ButtonLink } from "./ButtonLink";
-import { Logo } from "./Logo";
+import Logo from "./Logo";
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 
@@ -10,24 +10,29 @@ export async function Header() {
   const settings = await client.getSingle("settings");
 
   return (
-    <header className="header absolute left-0 right-0 top-0 z-50 ~h-32/48 ~px-4/6 ~py-4/6 hd:h-32">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-[auto,auto] items-center gap-6 md:grid-cols-[1fr,auto,1fr]">
-        <Link href="/" className="justify-self-start">
-          <Logo className="text-brand-purple ~h-12/20" />
+    <header className="header absolute left-0 right-0 top-0 z-50 bg-transparent px-6 py-0">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
+        {/* ✅ Left: Logo */}
+        <Link href="/" className="flex items-center">
+          <Logo className="text-brand-purple h-20 md:h-24 lg:h-40 w-auto transition-transform duration-300 hover:scale-105" />
         </Link>
-        <nav
-          aria-label="Main"
-          className="col-span-full row-start-2 md:col-span-1 md:col-start-2 md:row-start-1"
-        >
-          <ul className="flex flex-wrap items-center justify-center gap-8">
+
+        {/* ✅ Center: Navigation */}
+        <nav aria-label="Main" className="hidden md:flex flex-1 justify-center">
+          <ul className="flex flex-wrap items-center gap-8">
             {settings.data.navigation.map((item) => (
               <li key={item.link.text}>
-                <PrismicNextLink field={item.link} className="~text-lg/xl" />
+                <PrismicNextLink
+                  field={item.link}
+                  className="text-lg text-brand-purple font-medium"
+                />
               </li>
             ))}
           </ul>
         </nav>
-        <div className="justify-self-end">
+
+        {/* ✅ Right: Cart / Buttons */}
+        <div className="flex items-center justify-end">
           <ButtonLink href="" icon="cart" color="purple" aria-label="Cart (1)">
             <span className="md:hidden">1</span>
             <span className="hidden md:inline">Cart (1)</span>

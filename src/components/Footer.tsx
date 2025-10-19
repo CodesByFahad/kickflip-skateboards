@@ -3,7 +3,7 @@ import React from "react";
 import { asImageSrc } from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
-import { Logo } from "@/components/Logo";
+import  Logo  from "./Logo";
 import { Bounded } from "./Bounded";
 import { FooterPhysics } from "./FooterPhysics";
 
@@ -29,7 +29,7 @@ export async function Footer() {
           boardTextureURLs={boardTextureURLs}
           className="absolute inset-0 overflow-hidden"
         />
-        <Logo className="pointer-events-none relative h-20 mix-blend-exclusion md:h-28" />
+        <Logo className="pointer-events-none ml-10 relative h-40 mix-blend-exclusion md:h-56" />
       </div>
       <Bounded as="nav">
         <ul className="flex flex-wrap justify-center gap-8 ~text-lg/xl">

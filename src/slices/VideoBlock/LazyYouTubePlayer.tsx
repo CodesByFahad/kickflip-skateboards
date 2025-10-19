@@ -35,14 +35,19 @@ export function LazyYouTubePlayer({ youTubeID }: VideoProps) {
   });
 
   return (
-    <div className="relative h-full w-full" ref={containerRef}>
-      {isInView && (
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${youTubeID}?autoplay=1&mute=1&loop=1&playlist=${youTubeID}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          className="pointer-events-none h-full w-full border-0"
-        />
-      )}
-    </div>
+   <div className="relative h-full w-full overflow-hidden" ref={containerRef}>
+  {isInView && (
+    <iframe
+      src="https://www.youtube.com/embed/MFSx4jWmDfY?si=uN5TEF6ysxPuKy-q&start=26&autoplay=1&mute=1&loop=1&playlist=MFSx4jWmDfY"
+      title="Kickflip Skateboards Video"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allowFullScreen
+      className="pointer-events-none absolute left-1/2 top-1/2 h-[140%] w-[140%] -translate-x-1/2 -translate-y-1/2 scale-125 object-cover"
+    ></iframe>
+  )}
+</div>
+
   );
 }

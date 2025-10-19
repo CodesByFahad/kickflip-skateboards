@@ -24,8 +24,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.getSingle("settings");
 
   return {
-    title: settings.data.site_title,
-    description: settings.data.meta_description,
+    title: "Kickflip Skateboards",
+    description: "Custom boards built for your streets — design your perfect setup.",
     openGraph: {
       images: settings.data.fallback_og_image.url ?? undefined,
     },
